@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+// background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
+// background: #D3D3D3;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  &:before{
+    content:'';
+    content: "";
+    width: 100%;
+    height: 100vh;
+    background-image: url("../public/bg.jpg");
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.hero-pix {
+  background-image: url("../public/hero-pole.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.text-shadow{
+  text-shadow: 0px 2px 0px rgb(0 0 0 / 30%);
+}
+
+.adjacent-post{
+  & .arrow-btn{
+    transition: width 300ms ease;
+    width: 50px;
+  }
+  &:hover{
+    & .arrow-btn{
+      width: 60px;
+    }
+  }
+}
+
+.react-multi-carousel-list {
+  & .arrow-btn{
+    transition: all 300ms ease;
+    width: 40px;
+    height: 40px;
+    
+    padding-top: 0;
+    z-index: 10;
+    &:hover{
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  & .arrow-btn-left {
+    left: 0;
+  }
+  
+  & .arrow-btn-right {
+    right: 0;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.transition-all {
+  transition: all 300ms ease;
+}
+
+.modal-show {
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  // transition: all 3000ms ease !important;
+}
+
+
+/* -- create the quotation marks 
+https://tailwindcomponents.com/component/blockquote
+-- */
+
+// blockquote{
+//   quotes: "\201C""\201D""\2018""\2019";
+// }
+
+	// blockquote::before,
+	// blockquote::after {
+	// 	font-family: Montserrat;
+	// 	position: absolute;
+	// 	color: #039be5;
+	// 	font-size: 34px;
+	// }
+
+	// blockquote::before {
+	// 	content: "XXXX";
+	// 	top: -12px;
+	// 	margin-right: -20px;
+	// 	right: 100%;
+	// }
+
+	// blockquote::after {
+	// 	content: "&copy;";
+	// 	margin-left: -20px;
+	// 	left: 100%;
+	// 	top: auto;
+	// 	bottom: -20px;
+	// }

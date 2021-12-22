@@ -3,13 +3,12 @@ import cn from 'classnames'
 import Link from 'next/link'
 
 export default function CoverImage({ title, responsiveImage, slug }) {
+  // console.log('>>>responsive image', typeof responsiveImage)
+  const { src, alt, width, height, srcSet, webpSrcSet } = responsiveImage
   const image = (
     <Image
-      data={{
-        ...responsiveImage,
-        alt: `Cover Image for ${title}`,
-      }}
-      className={cn('shadow-small', {
+      data={responsiveImage}
+      className={cn('shadow-small rounded-t-lg', {
         'hover:shadow-medium transition-shadow duration-200': slug,
       })}
     />
