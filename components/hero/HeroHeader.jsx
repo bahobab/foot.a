@@ -44,14 +44,14 @@ function HeroHeader() {
       <img className="w-full" src={heroHeader?.heroImage?.responsiveImage.src} alt="Hero Header" />
     */}
 
-    <div className="">
+    <div className="hero-header-wrapper">
       {/* bg-[url('public/hero-pole.webp')] */}
-      <div className="hero-pix relative h-80 md:h-96 ">
+      <div className="hero-pix relative h-full md:h-full ">
         <div className="hero-pix-overlay absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-gray-500 opacity-30"></div>
         {/* <div className="absolute top-0 left-0 bg-gray-800 bg-opacity-50 h-full w-full"></div> */}
         {/* <div className=""> */}
           {/* <img className="w-auto lg:h-98" src={heroHeader?.heroImage?.responsiveImage.src} alt="Hero Header" /> */}
-        <div className="absolute top-4 md:top-auto md:bottom-16 right-8 md:p-4 p-2 bg-green-400 bg-opacity-70 rounded-lg flex flex-col items-end justify-center">
+        <div className="absolute top-4 md:top-auto md:bottom-16 right-8 p-4 bg-green-400 bg-opacity-50 rounded-lg flex flex-col items-end justify-center">
           <h1 className="flex justify-end text-white text-xl font-extrabold w-60 mb-4">{heroHeader.heroText}</h1>
           <a className="bg-red-500 text-white font-semibold my-2 px-4 py-2 rounded-md">{heroHeader.ctaText}</a>
         </div>
@@ -73,4 +73,3 @@ function HeroHeader() {
 }
 
 export default HeroHeader
- 

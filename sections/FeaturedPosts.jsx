@@ -62,7 +62,7 @@ function FearturedPosts() {
   );
 
   return (
-    <div className="mb-8">
+    <div className="mt-8">
 
       <Carousel infinite  responsive={responsive} customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} itemClass="px-4 relative">
         {dataLoaded && featuredPosts.map((post, index) => (

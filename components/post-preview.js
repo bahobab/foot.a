@@ -16,7 +16,7 @@ export default function PostPreview({
   
   return (
     // <div className="bg-white rounded-lg shadow-lg p-0 pb-12 mb-8 md:p-4 lg:p-8">
-    <div className="bg-white rounded-lg shadow-lg p-0 pb-12 mb-8">
+    <div className="bg-opacity-70 bg-white rounded-lg shadow-lg p-0 pb-12 mb-8">
       <div className="mb-5">
         <CoverImage
           slug={slug}

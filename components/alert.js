@@ -4,7 +4,9 @@ import Container from './container'
 import cn from 'classnames'
 import { EXAMPLE_PATH } from '@/lib/constants'
 
-import FearturedPosts from 'sections/FearturedPosts'
+import FeaturedPosts from '../sections/FeaturedPosts'
+import SectionSeparator from './section-separator';
+
 // import NewsTicker from 'sections/NewsTicker'
 // import { getNews } from '@/lib/api';
 
@@ -39,11 +41,16 @@ export default function Alert({ preview }) {
   //   </p>) 
   // )
 
+  // className={cn('border-b', {
+  //       'bg-accent-7 border-accent-7 text-white': preview,
+  //       'bg-accent-1 border-accent-2': !preview,
+  //     })}
+
   return (
     <div
-      className={cn('border-b', {
-        'bg-accent-7 border-accent-7 text-white': preview,
-        'bg-accent-1 border-accent-2': !preview,
+      className={cn('bg-transparent mt-8', {
+        ' text-white': preview,
+        '': !preview,
       })}
     >
       <Container>
@@ -65,7 +72,7 @@ export default function Alert({ preview }) {
               {/* <NewsTicker>
                 {newsTicker}
               </NewsTicker> */}
-              <FearturedPosts />
+              <FeaturedPosts />
               {/* <a
                 href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
                 className="underline hover:text-success duration-200 transition-colors"
@@ -75,6 +82,7 @@ export default function Alert({ preview }) {
             </>
           )}
         </div>
+        <SectionSeparator />
       </Container>
     </div>
   )

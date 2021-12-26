@@ -15,7 +15,7 @@ function Category() {
   // console.log('Categories', categories);
 
   return (
-    <div className="rounded-lg bg-blue-600 mt-8 p-4">
+    <div className="rounded-lg bg-opacity-50 bg-gradient-to-t from-blue-600 to-blue-400 mt-8 p-4">
       <h2 className="text-2xl font-bold text-white border-b border-b-gray-300 mb-4">Categories</h2>
       {
         categories.map(category => {

@@ -23,13 +23,13 @@ function Widget({slug, categories}) {
   }, [slug])
 
   return (
-    <div className="bg-red-600 rounded-lg shadow-lg p-4">
-      <h2 className="text-2xl text-white font-bold border-b border-b-gray-300 mb-4">{
+    <div className="bg-opacity-20 bg-gradient-to-b from-blue-400 to-blue-600 rounded-lg shadow-lg p-4">
+      <h2 className="text-2xl text-white tracking-wide font-bold border-b border-b-gray-300 mb-4">{
         slug? 'Related Posts' : 'Recents Posts'
       }</h2>
         {
         relatedPosts.map(post => (
-          <div key={post.slug} className="flex items-center w-full">
+          <div key={post.slug} className="flex items-center w-full mb-2 last:mb-0">
             <div className="flex-none">
               <img
                 src={post.coverImage.responsiveImage.src}
@@ -40,11 +40,11 @@ function Widget({slug, categories}) {
               />
             </div>
             <div className="flex-grow ml-4">
-              <p className="text-white">
+              <p className="text-white text-sm font-semibold">
                 <Date dateString={post.date} />
               </p>
               <Link href={`/posts/${post.slug}`}>
-                  <a>{post.title}</a>
+                  <a className='text-sm'>{post.title}</a>
               </Link>
             </div>
           </div>

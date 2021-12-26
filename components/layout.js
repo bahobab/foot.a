@@ -2,7 +2,7 @@ import Alert from './alert'
 import Footer from './footer'
 import Meta from './meta'
 
-import HeaderMenu from './menu/HederMenu'
+import HeaderMenu from '@/components/menu/HeaderMenu'
 import HeroHeader from '@/components/hero/HeroHeader'
 
 export default function Layout({ preview, children }) {

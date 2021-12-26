@@ -4,6 +4,8 @@ import markdownToHtml from '@/lib/markdownToHtml'
 import Image from 'next/image'
 
 import {getIntro} from '@/lib/api'
+import SectionSeparator from './section-separator'
+import Container from '@/components/container'
 
 export default function Intro() {
 const [intro, setIntro] = useState({})
@@ -49,15 +51,22 @@ useEffect(() => {
 }, [])
   
   return (
-    <section className="flex-col flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-center text-4xl md:text-7xl font-bold tracking-tighter leading-tight md:pr-8">
-        {intro?.heading}
-      </h1>
-      <h2 className='text-white text-xl font-extrabold my-8'>{intro?.subheading}</h2>
-      {/* <Image src="/quotes.png" height="50" width="50" /> */}
-      <div id="quote" className='bg-black text-white p-4 mb-4 rounded-lg shadow-lg'></div>
-      <p id="content" className="text-center md:text-left text-lg mt-5 md:pl-8"></p>
-    </section>
+    <>
+      <section className="flex-col flex items-center md:justify-between mt-16 mb-8 md:mb-12">
+        <h1 className="text-center text-white text-4xl md:text-7xl font-bold tracking-tighter leading-tight md:pr-8">
+          {intro?.heading}
+        </h1>
+        <h2 className='text-white text-sm md:text-xl md:font-semibold tracking-wide md:tracking-widest mb-8'>{intro?.subheading}</h2>
+        {/* <Image src="/quotes.png" height="50" width="50" /> */}
+        <Container >
+          <div className="flex flex-col md:flex-row items-center justify-around md:px-16">
+            <div id="quote" className='bg-black text-white p-4 mb-4 rounded-lg shadow-lg'></div>
+            <p id="content" className="text-center text-white md:tracking-wide md:text-left text-lg mt-5 md:pl-8 flex-shrink max-w-sm"></p>
+          </div>
+        </Container>
+      </section>
+      <SectionSeparator />
+    </>
   )
 }
 

@@ -11,7 +11,7 @@ import PostTitle from '@/components/post-title'
 import { getAllCategoryPaths, getPostsByCategory, getCategoryId } from '@/lib/api'
 
 function PostsByCategory({categoryPosts, category}) {
-  console.log('category', category)
+  // console.log('category', category)
   const router = useRouter()
   return (
     <Layout>
@@ -25,8 +25,12 @@ function PostsByCategory({categoryPosts, category}) {
           <div className="col-span-1 lg:col-span-8">
             {
               categoryPosts.length > 0
-              ? <MoreStories title={`${category.name} Posts`} posts={categoryPosts} />
-              : <h2 className="p-4 text-4xl md:text-5xl font-bold tracking-tighter leading-tight">
+              ? (
+                <div className="mt-8">
+                <MoreStories title={`${category.name} Posts`} posts={categoryPosts} />
+                </div>
+              )
+              : <h2 className="p-4 text-white mt-4 text-4xl md:text-5xl font-bold tracking-tighter leading-tight">
                   No posts yet for {category.name}
                 </h2>
             }
