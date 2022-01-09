@@ -1,6 +1,6 @@
 // import { GraphQLClient } from "graphql-request";
 
-// import { fetchAPI } from "@/lib/fetchDatocmQuery";
+import { fetchAPI } from "@/lib/fetchDatocmQuery";
 
 import { request } from "@/lib/datocms";
 
@@ -9,6 +9,11 @@ import { request } from "@/lib/datocms";
 
 export default async function datocmsquery(re, res ) {
   const { query, variables, preview } = re.body;
+
+  const respJSON = await fetchAPI(query, {variables, preview});
+  // console.log('>>respJSON', respJSON);
+  return res.json(respJSON)
+
   // console.log('request', { query, variables, preview });
 
   // if (!preview || !variables) {
@@ -27,7 +32,8 @@ export default async function datocmsquery(re, res ) {
   // });
 
   // const result = await client.request(query, variables);
-  const result = await request(query, { variables, preview });
-  // console.log('>>>>>result', result);
-  return res.send( result);
+
+  // ############################# local #########################
+  // const result = await request(query, { variables, preview });
+  // return res.send( result);
 }
