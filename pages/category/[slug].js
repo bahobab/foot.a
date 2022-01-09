@@ -11,6 +11,7 @@ import PostTitle from '@/components/post-title'
 import { getAllCategoryPaths, getPostsByCategory, getCategoryId } from '@/lib/api'
 
 function PostsByCategory({categoryPosts, category}) {
+  if (!category) return null
   // console.log('category', category)
   const router = useRouter()
   return (

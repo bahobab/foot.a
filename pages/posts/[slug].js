@@ -24,6 +24,7 @@ import Date from '@/components/date'
 
 export default function Post({ post, morePosts, preview }) {
   // console.log('??????', post)
+  if (!post) return null
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
