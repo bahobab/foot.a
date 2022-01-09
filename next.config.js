@@ -13,3 +13,6 @@ module.exports = {
   //   return config
   // }
 }
+
+// vercel.app
+// vercel.com
