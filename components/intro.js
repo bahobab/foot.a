@@ -17,19 +17,20 @@ const fetchIntro = useCallback(async () => {
   quote = await markdownToHtml(intro.quote || '')
   content = await markdownToHtml(intro.content || '')
 
+  // <Image src="/quotes.svg" width="20" height="20"/> 
   const quoteEl = document.querySelector('#quote').innerHTML = `
     
-    <Image src="/quotation.png" width="20" height="20" className=" bg-white z-10"/> ${quote}<br>  <cite> > Kongo Kongo</cite>
+    <div className="text-sm">${quote}</div><br>  <cite> > Kongo Kongo</cite>
   `
 
-  document.querySelector('#quote').style = `dangerouslySetInnerHTML={{
-  __html: [
-     '.my-special-div:after {',
-     '  content: "./public/quotes.png";',
-     '  position: absolute',
-     '}'
-    ].join('\n')
-  }}`
+  // document.querySelector('#quote').style = `dangerouslySetInnerHTML={{
+  // __html: [
+  //    '.my-special-div:after {',
+  //    '  content: "./public/quotes.svg";',
+  //    '  position: absolute',
+  //    '}'
+  //   ].join('\n')
+  // }}`
 
 //   <blockquote dangerouslySetInnerHTML={{
 //   __html: [
@@ -60,7 +61,7 @@ useEffect(() => {
         {/* <Image src="/quotes.png" height="50" width="50" /> */}
         <Container >
           <div className="flex flex-col md:flex-row items-center justify-around md:px-16">
-            <div id="quote" className='bg-black text-white p-4 mb-4 rounded-lg shadow-lg'></div>
+            <div id="quote" className='bg-black text-md text-white p-4 mb-4 rounded-lg shadow-lg'></div>
             <p id="content" className="text-center text-white md:tracking-wide md:text-left text-lg mt-5 md:pl-8 flex-shrink max-w-sm"></p>
           </div>
         </Container>

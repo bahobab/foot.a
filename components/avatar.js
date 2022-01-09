@@ -9,11 +9,11 @@ export default function Avatar({ name, picture }) {
         <Image
           src={picture.url}
           layout="fill"
-          className="rounded-full"
+          className="rounded-full absolute w-full h-full object-cover"
           alt={name}
         />
       </div>
-      <div className="text-xl font-bold">{name}</div>
+      <div className="text-xl text-th-tertiary font-bold">{name}</div>
     </div>
   )
 }

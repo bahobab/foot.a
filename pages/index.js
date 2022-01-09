@@ -15,7 +15,7 @@ export default function Index({ allPosts }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
-    <>
+    <div  className="bg-th-background">
       <Layout>
         <Head>
           <title>African Football Blog - {BLOG_NAME}</title>
@@ -46,7 +46,7 @@ export default function Index({ allPosts }) {
           </div>
         </Container>
       </Layout>
-    </>
+    </div>
   )
 }
 

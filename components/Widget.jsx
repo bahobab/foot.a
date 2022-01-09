@@ -23,8 +23,8 @@ function Widget({slug, categories}) {
   }, [slug])
 
   return (
-    <div className="bg-opacity-20 bg-gradient-to-b from-blue-400 to-blue-600 rounded-lg shadow-lg p-4">
-      <h2 className="text-2xl text-white tracking-wide font-bold border-b border-b-gray-300 mb-4">{
+    <div className="bg-opacity-20 bg-gradient-to-b from-th-background-tertiary rounded-lg shadow-lg p-4">
+      <h2 className="text-2xl text-th-tertiary tracking-wide font-bold border-b border-b-gray-300 mb-4">{
         slug? 'Related Posts' : 'Recents Posts'
       }</h2>
         {
@@ -40,11 +40,11 @@ function Widget({slug, categories}) {
               />
             </div>
             <div className="flex-grow ml-4">
-              <p className="text-white text-sm font-semibold">
+              <p className="text-white text-sm">
                 <Date dateString={post.date} />
               </p>
               <Link href={`/posts/${post.slug}`}>
-                  <a className='text-sm'>{post.title}</a>
+                  <a className='text-sm text-th-secondary font-semibold'>{post.title}</a>
               </Link>
             </div>
           </div>

@@ -15,12 +15,12 @@ function Category() {
   // console.log('Categories', categories);
 
   return (
-    <div className="rounded-lg bg-opacity-50 bg-gradient-to-t from-blue-600 to-blue-400 mt-8 p-4">
-      <h2 className="text-2xl font-bold text-white border-b border-b-gray-300 mb-4">Categories</h2>
+    <div className="bg-opacity-20 bg-gradient-to-b from-th-background-tertiary shadow-lg rounded-lg mt-8 p-4">
+      <h2 className="text-2xl font-bold text-th-tertiary border-b border-b-gray-300 mb-4">Categories</h2>
       {
         categories.map(category => {
           return (
-            <div key={category.name} >
+            <div key={category.name} className='text-th-secondary font-semibold'>
               <Link href={`/category/${category.slug}`}>
                 <a>{category.name}</a>
               </Link>

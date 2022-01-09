@@ -8,17 +8,102 @@
 // background: #D3D3D3;
 
 :root{
-  --background1: #021000;
-  --primary1: #ffba66;
-  --secondary1: #ca6f00;
+  --foreground: theme("colors.gray.100");
+  --background: theme("colors.green.900");
+  --background-secondary: theme("colors.gray.800");
+  --background-tertiary: theme("colors.gray.700");
 
-  --background2: #000101;
-  --primary2: #6fbefb;
-  --secondary2: #014a82;
+  --accent-dark: theme('colors.pink.900');
+  --accent-medium: theme('colors.pink.700');
+  --accent-light: theme('colors.pink.500');
 
-  --background3: #020000;
-  --primary3: #ff7566;
-  --secondary3: #ca1300;
+  --primary-dark: theme('colors.gray.300');
+  --primary-medium: theme('colors.gray.200');
+  --primary-light: theme('colors.gray.100');
+
+}
+
+[data-theme='ghana'] {
+  --foreground: theme("colors.gray.100");
+  --background: theme("colors.yellow.900");
+  --background-secondary: theme("colors.gray.800");
+  --background-tertiary: theme("colors.yellow.600");
+
+  --accent-dark: theme('colors.pink.900');
+  --accent-medium: theme('colors.pink.700');
+  --accent-light: theme('colors.pink.500');
+
+  --primary-dark: theme('colors.gray.300');
+  --primary-medium: theme('colors.gray.200');
+  --primary-light: theme('colors.gray.100');
+}
+[data-theme='senegal'] {
+  --foreground: theme("colors.white");
+  --background: theme("colors.black");
+  --background-secondary: theme("colors.gray.800");
+  --background-tertiary: theme("colors.gray.300");
+
+  --accent: theme('colors.pink.400');
+  --accent-primary: theme('colors.red.600');
+  --accent-secondary: theme('colors.purple.600');
+  --accent-tertiary: theme('colors.green.600');
+
+  --primary: theme('colors.green.600');
+  --primary-dark: theme('colors.green.900');
+  --primary-medium: theme('colors.green.500');
+  --primary-light: theme('colors.green.200');
+
+  --secondary: theme('colors.yellow.300');
+  --secondary-dark: theme('colors.yellow.700');
+  --secondary-medium: theme('colors.yellow.500');
+  --secondary-light: theme('colors.yellow.100');
+
+  --tertiary: theme('colors.red.600');
+  --tertiary-dark: theme('colors.red.900');
+  --tertiary-medium: theme('colors.red.700');
+  --tertiary-light: theme('colors.red.300');
+}
+
+[data-theme='mali'] {
+  --foreground: theme("colors.gray.100");
+  --background: theme("colors.red.900");
+  --background-secondary: theme("colors.gray.800");
+  --background-tertiary: theme("colors.gray.700");
+
+  --accent-dark: theme('colors.pink.900');
+  --accent-medium: theme('colors.pink.700');
+  --accent-light: theme('colors.pink.500');
+
+  --primary-dark: theme('colors.gray.300');
+  --primary-medium: theme('colors.gray.200');
+  --primary-light: theme('colors.gray.100');
+}
+
+[data-theme='ethiopia'] {
+  --foreground: theme("colors.gray.100");
+  --background: theme(colors.red.900);
+  --background-secondary: theme(colors.gray.800);
+  --background-tertiary: theme(colors.gray.700);
+
+  --accent-dark: theme('colors.pink.900');
+  --accent-medium: theme('colors.pink.700');
+  --accent-light: theme('colors.pink.500');
+
+  --primary-dark: theme('colors.gray.300');
+  --primary-medium: theme('colors.gray.200');
+  --primary-light: theme('colors.gray.100');
+}
+
+  
+  // --secondary1: #ca6f00;
+
+  // --background2: #000101;
+  // --primary2: #6fbefb;
+  // --secondary2: #014a82;
+
+  // --background3: #020000;
+  // --primary3: #ff7566;
+  // --secondary3: #ca1300;
 
   // #021134
   // #092467
@@ -37,8 +122,20 @@
   // #FF866C
   // #D42703
 
+  // rgb(234, 223,194)
 
-}
+  // Ghana colors
+  // --background1: #E66600;
+  // --primary1: #A11700;
+  // --background2: #CFB829
+  // --light: #F2FFCC
+  // --dark: #000
+  // --primary2: #
+  
+// rgb(230, 95, 10)
+// rgb(161, 210, 0)
+
+
 
 html,
 body {
@@ -51,7 +148,8 @@ body {
     width: 100%;
     height: 100vh;
     // background-image: url("../public/bg.jpg");
-    background: #021134;
+    // background: #9B0035;
+    // background: #021134;
     position: fixed;
     left: 0;
     top: 0;
@@ -165,3 +263,23 @@ https://tailwindcomponents.com/component/blockquote
 	// 	top: auto;
 	// 	bottom: -20px;
 	// }
+
+  #quote {
+    // display: inline-block;
+    background: linear-gradient(rgba(0, 0, 0, 0.611), rgba(0, 0, 0, 0.556)), url("/quotes.svg") no-repeat;
+    background-position: left 5px top 5px;
+    background-size: 5%;
+  }
+
+  // blockquote::before {
+  //   content:"\201C""\201D""\2018""\2019";;
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background: #039be5;
+  //   z-index: -1;
+  //   transform: skew(-10deg);
+  //   transform-origin: 0 0;
+  // }

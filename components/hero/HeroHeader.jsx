@@ -25,8 +25,8 @@ function HeroHeader() {
   }, []) 
 
   const newsTicker = news.map((item, index) => (
-    <p key={index} className='text-white text-lg'>
-      <span className='font-semibold bg-black inline-block mx-2 px-1 h-full'>{item.title}:</span>
+    <p key={index} className='text-th-tertiary text-lg'>
+      <span className='text-th-secondary font-semibold bg-th-tertiary inline-block mx-2 px-1 h-full'>{item.title}:</span>
       {item.text}
     </p>) 
   )
@@ -53,7 +53,7 @@ function HeroHeader() {
           {/* <img className="w-auto lg:h-98" src={heroHeader?.heroImage?.responsiveImage.src} alt="Hero Header" /> */}
         <div className="absolute top-4 md:top-auto md:bottom-16 right-8 p-4 bg-green-400 bg-opacity-50 rounded-lg flex flex-col items-end justify-center">
           <h1 className="flex justify-end text-white text-xl font-extrabold w-60 mb-4">{heroHeader.heroText}</h1>
-          <a className="bg-red-500 text-white font-semibold my-2 px-4 py-2 rounded-md">{heroHeader.ctaText}</a>
+          <a className="bg-red-500 text-th-secondary font-semibold my-2 px-4 py-2 rounded-md">{heroHeader.ctaText}</a>
         </div>
         </div>
         {/* <div className="absolute flex flex-col justify-center items-end top-0 left-0 bg-gray-600 bg-opacity-50 w-full p-4">

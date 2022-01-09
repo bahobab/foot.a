@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Container from '../container'
 import { getCategories } from '@/lib/api'
 
+import ThemeChanger from '../ThemeChanger'
+
 // const categories = [
 //   {name: 'Joueur', slug: 'joueur'},
 //   {name: 'Equipe', slug: 'equipe'},
@@ -76,6 +78,7 @@ function HeaderMenu(props) {
             </span>
           </Link>
         </div>
+        <ThemeChanger />
         <div className="hidden md:flex md:justify-end md:float-left">
           {
             // categories.map((category) => {

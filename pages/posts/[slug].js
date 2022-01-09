@@ -29,50 +29,52 @@ export default function Post({ post, morePosts, preview }) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout preview={preview}>
-      <Container>
-        {/* <Header /> */}
-        <PostTitle>{post.title}</PostTitle>
-        {router.isFallback 
-        ? <PostTitle>Loading…</PostTitle>
-        : (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
-            <div className="col-span-1 lg:col-span-8">
-              <article>
-                <Head>
-                  <title>
-                    {post.title} | {CMS_NAME}
-                  </title>
-                  <meta property="og:image" content={post.ogImage.url} />
-                </Head>
-                <PostHeader
-                  title={post.title}
-                  coverImage={post.coverImage}
-                  date={post.date}
-                  author={post.author[0]}
-                />
-                <div className="p-8 bg-white mb-4 rounded-b-lg">
-                  <Avatar name={post.author[0].name} picture={post.author[0].picture} />
-                  <Date dateString={post.date} />
-                  <PostBody content={post.content} />
+    <div  className="bg-th-background">
+      <Layout preview={preview}>
+        <Container>
+          {/* <Header /> */}
+          <PostTitle>{post.title}</PostTitle>
+          {router.isFallback 
+          ? <PostTitle>Loading…</PostTitle>
+          : (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
+              <div className="col-span-1 lg:col-span-8">
+                <article>
+                  <Head>
+                    <title>
+                      {post.title} | {CMS_NAME}
+                    </title>
+                    <meta property="og:image" content={post.ogImage.url} />
+                  </Head>
+                  <PostHeader
+                    title={post.title}
+                    coverImage={post.coverImage}
+                    date={post.date}
+                    author={post.author[0]}
+                  />
+                  <div className="p-8 bg-th-background-secondary mb-4 rounded-b-lg">
+                    <Avatar name={post.author[0].name} picture={post.author[0].picture} />
+                    <Date dateString={post.date} />
+                    <PostBody content={post.content} />
+                  </div>
+                </article>
+                {/* <SectionSeparator /> */}
+                <CommentForm post={post}/>
+                <Comments post={post}/>
+                <SectionSeparator />
+                {morePosts.length > 0 && <MoreStories title="More Stories" posts={morePosts} />}
+              </div>
+              <div className="col-span-1 lg:col-span-4 align-middle mb-8">
+                <div className=" top-8 lg:sticky">
+                  <Widget slug={post.slug} categories={post.categories.map(category => category.slug)}/>
+                  <Category />
                 </div>
-              </article>
-              {/* <SectionSeparator /> */}
-              <CommentForm post={post}/>
-              <Comments post={post}/>
-              <SectionSeparator />
-              {morePosts.length > 0 && <MoreStories title="More Stories" posts={morePosts} />}
-            </div>
-            <div className="col-span-1 lg:col-span-4 align-middle mb-8">
-              <div className=" top-8 lg:sticky">
-                <Widget slug={post.slug} categories={post.categories.map(category => category.slug)}/>
-                <Category />
               </div>
             </div>
-          </div>
-        )}
-      </Container>
-    </Layout>
+          )}
+        </Container>
+      </Layout>
+    </div>
   )
 }
 
