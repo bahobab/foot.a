@@ -12,6 +12,11 @@ export default async function datocmsquery(req, res ) {
   const { query, variables, preview } = req.body;
 
   const respJSON = await fetchAPI(query, {variables, preview});
+  if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
+    return res.status(200).json({});
+  }
   return res.status(200).json(respJSON)
 
   // console.log('request', { query, variables, preview });
