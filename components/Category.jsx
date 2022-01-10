@@ -3,14 +3,14 @@ import Link from 'next/link';
 
 import {getCategories} from '@/lib/api'
 
-function Category() {
-  const [categories, setCategories] = useState([]);
+function Category({categories}) {
+  // const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    getCategories().then(categories => {
-        setCategories(categories);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getCategories().then(categories => {
+  //       setCategories(categories);
+  //   });
+  // }, []);
 
   // console.log('Categories', categories);
 
@@ -36,12 +36,12 @@ function Category() {
 
 export default Category
 
-// export async function getStaticProps() {
-//   const categories = await getCategories();
-//   console.log('Categories', categories);
-//   return {
-//     props: {
-//       categories
-//     },
-//   }
-// }
+export async function getStaticProps() {
+  const categories = await getCategories();
+  console.log('Categories', categories);
+  return {
+    props: {
+      categories
+    },
+  }
+}
