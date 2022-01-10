@@ -56,7 +56,7 @@ export default PostsByCategory
 export async function getStaticPaths() {
   const paths = await getAllCategoryPaths()
   return {
-    paths: paths.map(path => `/category/${path.slug}`) || [],
+    paths: paths?.map(path => `/category/${path.slug}`) || [],
     fallback: true
   }
 }
