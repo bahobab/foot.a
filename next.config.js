@@ -17,8 +17,9 @@ module.exports = {
   async rewrites() {
         return [
           {
-            source: '/api/:path*',
-            destination: 'https://ba-footblog-4v2nv5i5d-bahobab.vercel.app/:path*',
+            // source: '/api/:path*',
+            source: 'https://ba-footblog.vercel.app/:path*',
+            destination: '/api/:path*',
           },
         ]
       },
