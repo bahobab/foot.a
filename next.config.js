@@ -18,8 +18,8 @@ module.exports = {
         return [
           {
             // source: '/api/:path*',
-            source: 'https://ba-footblog.vercel.app/:path*',
-            destination: '/api/:path*',
+            source: 'https://ba-footblog.vercel.app',
+            destination: 'https://ba-footblog-1gc7tvq76-bahobab.vercel.app/api/datocmsquery',
           },
         ]
       },
