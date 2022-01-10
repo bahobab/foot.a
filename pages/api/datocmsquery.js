@@ -7,11 +7,11 @@ import { request } from "@/lib/datocms";
 // import dotenv from "dotenv";
 // dotenv.config();
 
-export default async function datocmsquery(re, res ) {
-  const { query, variables, preview } = re.body;
+export default async function datocmsquery(req, res ) {
+  console.log('>>IN DATOCMS QUErY', req.url);
+  const { query, variables, preview } = req.body;
 
   const respJSON = await fetchAPI(query, {variables, preview});
-  // console.log('>>respJSON', respJSON);
   return res.json(respJSON)
 
   // console.log('request', { query, variables, preview });
