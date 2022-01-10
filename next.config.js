@@ -18,12 +18,8 @@ module.exports = {
     return [
       {
         // matching all API routes
-        routes: [
-          {
-            source: "/api/:path*",
-            destination: "https://ba-footblog.vercel.app/:path*",
-          },
-        ],
+        source: "/api/:path*",
+        destination: "https://ba-footblog.vercel.app/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
