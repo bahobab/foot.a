@@ -12,7 +12,7 @@ export default async function datocmsquery(req, res ) {
   const { query, variables, preview } = req.body;
 
   const respJSON = await fetchAPI(query, {variables, preview});
-  return res.json(respJSON)
+  return res.status(200).json(respJSON)
 
   // console.log('request', { query, variables, preview });
 
