@@ -25,7 +25,7 @@ export default async function comments(req, res) {
   // Run the middleware
   await runMiddleware(req, res, cors)
   
-  const API_TOKEN = process.env.NEXT_DATOCMS_API_TOKEN
+  const API_TOKEN = process.env.NEXT_ENV_DATOCMS_API_TOKEN
   
   const datoClient = new SiteClient( API_TOKEN )
 
