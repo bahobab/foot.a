@@ -7,7 +7,7 @@ import {getIntro} from '@/lib/api'
 import SectionSeparator from './section-separator'
 import Container from '@/components/container'
 
-export default function Intro({intro: initialIntro}) {
+export default function Intro() {
   // console.log('<<<<<< intro', initialIntro)
 const [intro, setIntro] = useState({})
 
@@ -19,9 +19,9 @@ let content, quote
   // <Image src="/quotes.svg" width="20" height="20"/> 
 
 const fetchIntro = useCallback(async () => {
-  // const intro = await getIntro()
-  quote = await markdownToHtml(initialIntro?.quote || '')
-  content = await markdownToHtml(initialIntro?.content || '')
+  const intro = await getIntro()
+  quote = await markdownToHtml(intro?.quote || '')
+  content = await markdownToHtml(intro?.content || '')
 
   // <Image src="/quotes.svg" width="20" height="20"/> 
   const quoteEl = document.querySelector('#quote').innerHTML = `
@@ -61,7 +61,7 @@ useEffect(() => {
   
   return (
     <>
-      <section className="flex-col flex items-center md:justify-between mt-16 mb-8 md:mb-12">
+      <section className="flex-col flex items-center md:justify-between mt-8 mb-8 md:mb-12">
         <h1 className="text-center text-white text-4xl md:text-7xl font-bold tracking-tighter leading-tight md:pr-8">
           {intro?.heading}
         </h1>

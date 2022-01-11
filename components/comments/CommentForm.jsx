@@ -61,8 +61,8 @@ function CommentForm({post}) {
   }
 
   return (
-    <div className="bg-green-500 rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-white text-xl font-semibold mb-8 pb-4 border-b">
+    <div className="bg-green-500 rounded-lg p-8 pb-12 mb-8 mt-8">
+      <h3 className="text-th-accent-secondary font-semibold mb-8 pb-4 border-b">
         Leave a comment
       </h3>
       <div className="grid grid-cols-1 gap-4 mb-4">

@@ -17,7 +17,7 @@ function PostsByCategory({categoryPosts, similarPosts, category, preview, news, 
     <div  className="bg-th-background">
       <Layout preview={preview} news={news} heroHeader={heroHeader} categories={categories}>
         <Container>
-          <div className="text-white bg-green-400 rounded-lg p-8 mt-8 md:mb-8" dangerouslySetInnerHTML={{__html: `<p>${category?.summary}<p>`}} />
+          <div className="text-white bg-green-400 rounded-lg p-8 mt-16 md:mb-8" dangerouslySetInnerHTML={{__html: `<p>${category?.summary}<p>`}} />
           {
             router.isFallback 
             ? <PostTitle>Loading...</PostTitle>

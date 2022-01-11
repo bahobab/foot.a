@@ -17,7 +17,7 @@ function Comments({post}) {
         comments?.length > 0
           ? (
             <div className="bg-white shaddow-lg rounded-lg p-8 pb-8">
-              <h3 className="text-xlg font-semi-bold border-b pb-4 mb-8">
+              <h3 className="text-xlg text-th-accent-secondary font-semibold border-b pb-4 mb-8">
                 {comments.length} Comments
               </h3>
               {

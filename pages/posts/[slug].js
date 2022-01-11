@@ -20,7 +20,6 @@ import Comments from '@/components/comments/Comments'
 
 import Avatar from '@/components/avatar'
 import Date from '@/components/date'
-// import PostTitle from '@/components/post-title'
 
 import { getCategories, getNews, getHeroHeader, getSimilarPosts, getPostComments } from '@/lib/api'
 

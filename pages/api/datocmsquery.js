@@ -26,7 +26,6 @@ import { fetchAPI } from "@/lib/fetchDatocmQuery";
 // dotenv.config();
 
 export default async function datocmsquery(req, res ) {
-  console.log('>>IN DATOCMS QUErY', req.url);
   // Run the middleware
   await runMiddleware(req, res, cors)
 
@@ -34,7 +33,6 @@ export default async function datocmsquery(req, res ) {
 
   const respJSON = await fetchAPI(query, {variables, preview});
 
-  console.log('>>IN DATOCMS QUErY RESPONSE', respJSON);
   if (req.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");

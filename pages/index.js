@@ -5,7 +5,7 @@ import Intro from '@/components/intro'
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import { BLOG_NAME } from '@/lib/constants'
-import { getAllPostsForHome, getCategories, getNews, getHeroHeader, getFeaturedPosts, getRecentPosts, getIntro } from '@/lib/api'
+import { getAllPostsForHome, getCategories, getNews, getHeroHeader, getFeaturedPosts, getRecentPosts } from '@/lib/api'
 
 import Widget from '@/components/Widget'
 import Alert from '@/components/alert'
@@ -15,7 +15,7 @@ import HeroHeader from '@/components/hero/HeroHeader'
 import SectionSeparator from '@/components/section-separator'
 import FeaturedPosts from 'sections/FeaturedPosts'
 
-export default function Index({ allPosts, recentPosts, allCategories, news, heroHeader, featuredPosts, intro }) {
+export default function Index({ allPosts, recentPosts, allCategories, news, heroHeader, featuredPosts}) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
@@ -28,7 +28,7 @@ export default function Index({ allPosts, recentPosts, allCategories, news, hero
           {/* <HeaderMenu categories={allCategories}/>
           <HeroHeader news={news} heroHeader={heroHeader}/>*/}
           <FeaturedPosts featuredPosts={featuredPosts} /> 
-          <Intro intro={intro}/>
+          <Intro />
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
             <div className="col-span-1 lg:col-span-8">
               {heroPost && (
@@ -64,11 +64,11 @@ export async function getStaticProps({ preview = false }) {
   const news = await getNews()
   const heroHeader = await getHeroHeader()
   const featuredPosts = await getFeaturedPosts()
-  const intro = await getIntro()
+  // const intro = await getIntro()
 
   // console.log('>>> heroheader', heroHeader)
   return {
     // props: { allPosts, allCategories, featuredPosts, intro },
-    props: { allPosts, recentPosts, allCategories, news, heroHeader, featuredPosts, intro },
+    props: { allPosts, recentPosts, allCategories, news, heroHeader, featuredPosts },
   }
 }

@@ -69,7 +69,7 @@ function FeaturedPosts({featuredPosts}) {
         ))
 
   return (
-    <div className="mt-8">
+    <div className="mt-16">
 
       <Carousel infinite  responsive={responsive} customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} itemClass="px-4 relative">
         {dataLoaded && slides}
