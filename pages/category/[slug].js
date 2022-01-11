@@ -7,9 +7,9 @@ import MoreStories from '@/components/more-stories'
 import Widget from '@/components/Widget'
 import PostTitle from '@/components/post-title'
 
-import { getAllCategoryPaths, getPostsByCategory, getCategoryId, getCategories, getNews, getHeroHeader } from '@/lib/api'
+import { getAllCategoryPaths, getPostsByCategory, getCategoryId, getCategories, getNews, getHeroHeader, getSimilarPosts } from '@/lib/api'
 
-function PostsByCategory({categoryPosts, category, preview, news, heroHeader, categories}) {
+function PostsByCategory({categoryPosts, similarPosts, category, preview, news, heroHeader, categories}) {
   if (!category) return null
   // console.log('category', category)
   const router = useRouter()
@@ -38,7 +38,7 @@ function PostsByCategory({categoryPosts, category, preview, news, heroHeader, ca
             </div>
             <div className="col-span-1 lg:col-span-4 align-middle mb-8">
               <div className="lg:sticky lg:mt-22 top-8">
-                <Widget />
+                <Widget slug={category.slug} similarPosts={similarPosts}/>
               </div>
             </div>
           </div>
@@ -67,9 +67,11 @@ export async function getStaticProps({params}) {
   const categoryPosts = await getPostsByCategory(category.id)
 
   const categories = await getCategories()
+  const similarPosts = await getSimilarPosts(params.slug, categories)
+
   const news = await getNews()
   const heroHeader = await getHeroHeader()
   
 
-  return { props: { categoryPosts, category, categories, news, heroHeader } }
+  return { props: { categoryPosts, category, categories, news, heroHeader, similarPosts } }
 }

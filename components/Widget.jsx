@@ -4,23 +4,22 @@ import Link from 'next/link'
 import Date from './date'
 import { getRecentPosts, getSimilarPosts, getAllPostsForHome } from '@/lib/api'
 
-function Widget({slug, categories}) {
-  const [relatedPosts, setRelatedPosts] = useState([])
+function Widget({slug, similarPosts:relatedPosts}) {
+// function Widget({slug, categories, similarPosts:relatedPosts}) {
+  // const [relatedPosts, setRelatedPosts] = useState([])
 
-  useEffect(() => {
-    // console.log('USR EFFECT')
-    // console.log('<><>cat', categories)
-    if (slug) {
-      // console.log('categories', categories)
-      getSimilarPosts(slug, categories).then(posts => {
-        setRelatedPosts(posts)
-      })
-    } else {
-      getRecentPosts().then(posts => {
-        setRelatedPosts(posts)
-      })
-    }
-  }, [slug])
+  // useEffect(() => {
+    
+  //   if (slug) {
+  //     getSimilarPosts(slug, categories).then(posts => {
+  //       setRelatedPosts(posts)
+  //     })
+  //   } else {
+  //     getRecentPosts().then(posts => {
+  //       setRelatedPosts(posts)
+  //     })
+  //   }
+  // }, [slug])
 
   return (
     <div className="bg-opacity-20 bg-gradient-to-b from-th-background-tertiary rounded-lg shadow-lg p-4">
@@ -28,7 +27,7 @@ function Widget({slug, categories}) {
         slug? 'Related Posts' : 'Recents Posts'
       }</h2>
         {
-        relatedPosts.map(post => (
+        relatedPosts?.map(post => (
           <div key={post.slug} className="flex items-center w-full mb-2 last:mb-0">
             <div className="flex-none">
               <img

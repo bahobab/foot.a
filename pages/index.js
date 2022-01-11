@@ -5,7 +5,7 @@ import Intro from '@/components/intro'
 import Layout from '@/components/layout'
 import Head from 'next/head'
 import { BLOG_NAME } from '@/lib/constants'
-import { getAllPostsForHome, getCategories, getNews, getHeroHeader, getFeaturedPosts, getIntro } from '@/lib/api'
+import { getAllPostsForHome, getCategories, getNews, getHeroHeader, getFeaturedPosts, getRecentPosts, getIntro } from '@/lib/api'
 
 import Widget from '@/components/Widget'
 import Alert from '@/components/alert'
@@ -15,7 +15,7 @@ import HeroHeader from '@/components/hero/HeroHeader'
 import SectionSeparator from '@/components/section-separator'
 import FeaturedPosts from 'sections/FeaturedPosts'
 
-export default function Index({ allPosts, allCategories, news, heroHeader, featuredPosts, intro }) {
+export default function Index({ allPosts, recentPosts, allCategories, news, heroHeader, featuredPosts, intro }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
@@ -46,7 +46,7 @@ export default function Index({ allPosts, allCategories, news, heroHeader, featu
             </div>
             <div className="col-span-1 lg:col-span-4 align-middle">
               <div className="lg:sticky top-8">
-                <Widget />
+                <Widget similarPosts={recentPosts}/>
                 <CategoryMenu categories={ allCategories}/>
               </div>
             </div>
@@ -60,6 +60,7 @@ export default function Index({ allPosts, allCategories, news, heroHeader, featu
 export async function getStaticProps({ preview = false }) {
   const allPosts = (await getAllPostsForHome(preview)) || []
   const allCategories = await getCategories()
+  const recentPosts = await getRecentPosts()
   const news = await getNews()
   const heroHeader = await getHeroHeader()
   const featuredPosts = await getFeaturedPosts()
@@ -68,6 +69,6 @@ export async function getStaticProps({ preview = false }) {
   // console.log('>>> heroheader', heroHeader)
   return {
     // props: { allPosts, allCategories, featuredPosts, intro },
-    props: { allPosts, allCategories, news, heroHeader, featuredPosts, intro },
+    props: { allPosts, recentPosts, allCategories, news, heroHeader, featuredPosts, intro },
   }
 }

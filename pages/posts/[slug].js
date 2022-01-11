@@ -22,9 +22,9 @@ import Avatar from '@/components/avatar'
 import Date from '@/components/date'
 // import PostTitle from '@/components/post-title'
 
-import { getCategories, getNews, getHeroHeader, getPostComments } from '@/lib/api'
+import { getCategories, getNews, getHeroHeader, getSimilarPosts, getPostComments } from '@/lib/api'
 
-export default function Post({ post, morePosts, preview, news, heroHeader, categories, comments }) {
+export default function Post({ post, similarPosts, morePosts, preview, news, heroHeader, categories, comments }) {
   // console.log('??????', post)
   if (!post) return null
   const router = useRouter()
@@ -69,8 +69,9 @@ export default function Post({ post, morePosts, preview, news, heroHeader, categ
               </div>
               <div className="col-span-1 lg:col-span-4 align-middle mb-8">
                 <div className=" top-8 lg:sticky">
-                  <Widget slug={post.slug} categories={post.categories.map(category => category.slug)}/>
-                  <CategoryMenu />
+                  <Widget slug={post.slug} similarPosts={similarPosts}/>
+                  {/* <Widget slug={post.slug} categories={post.categories.map(category => category.slug)}/> */}
+                  <CategoryMenu categories={categories}/>
                 </div>
               </div>
             </div>
@@ -88,6 +89,7 @@ export async function getStaticProps({ params, preview = false }) {
   const comments = await getPostComments(data.post.id)
   
   const allCategories = await getCategories()
+  const similarPosts = await getSimilarPosts(params.slug, allCategories)
   const news = await getNews()
   const heroHeader = await getHeroHeader()
 
@@ -98,6 +100,7 @@ export async function getStaticProps({ params, preview = false }) {
         ...data?.post,
         content,
       },
+      similarPosts,
       morePosts: data?.morePosts ?? [],
       categories: allCategories,
       news,
