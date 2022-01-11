@@ -4,12 +4,12 @@ import {getPostComments} from '@/lib/api'
 import Date from '../date'
 import { comment } from 'postcss'
 
-function Comments({comments}) {
-  // const [comments, setComments] = useState([])
+function Comments({post}) {
+  const [comments, setComments] = useState([])
 
-  // useEffect(() => {
-  //   getPostComments(post.id).then(comments => setComments(comments))
-  // }, [post.slug])
+  useEffect(() => {
+    getPostComments(post.id).then(comments => setComments(comments))
+  }, [post.slug])
 
   return (
     <>

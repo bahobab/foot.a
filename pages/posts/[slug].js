@@ -63,7 +63,7 @@ export default function Post({ post, similarPosts, morePosts, preview, news, her
                 </article>
                 {/* <SectionSeparator /> */}
                 <CommentForm post={post}/>
-                <Comments comments={comments}/>
+                <Comments post={post}/>
                 <SectionSeparator />
                 {morePosts.length > 0 && <MoreStories title="More Stories" posts={morePosts} />}
               </div>
@@ -86,7 +86,8 @@ export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
   const content = await markdownToHtml(data?.post?.content || '')
 
-  const comments = await getPostComments(data.post.id)
+  // const comments = await getPostComments(data.post.id)
+  // console.log('comments', comments)
   
   const allCategories = await getCategories()
   const similarPosts = await getSimilarPosts(params.slug, allCategories)
@@ -105,7 +106,7 @@ export async function getStaticProps({ params, preview = false }) {
       categories: allCategories,
       news,
       heroHeader,
-      comments
+      // comments
     },
   }
 }
