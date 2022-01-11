@@ -16,16 +16,13 @@ import ThemeChanger from '../ThemeChanger'
 // ]
 
 
-function HeaderMenu(props) {
-  const [categories, setCategories] = useState([])
-
-  // let btn
-  // const menu
+function HeaderMenu({categories}) {
+  // const [categories, setCategories] = useState([])
   
   useEffect(() => {
-    getCategories().then(data => {
-      setCategories(data)
-    }) 
+    // getCategories().then(data => {
+    //   setCategories(data)
+    // }) 
     
     const menu = window.document.querySelector(".mobile-menu");
     const btn = window.document.querySelector(".mobile-menu-button");

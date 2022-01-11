@@ -7,15 +7,21 @@ import {getIntro} from '@/lib/api'
 import SectionSeparator from './section-separator'
 import Container from '@/components/container'
 
-export default function Intro() {
+export default function Intro({intro: initialIntro}) {
+  console.log('<<<<<< intro', initialIntro)
 const [intro, setIntro] = useState({})
 
 let content, quote
 
+// quote = await markdownToHtml(intro.quote || '')
+//   content = await markdownToHtml(intro.content || '')
+
+  // <Image src="/quotes.svg" width="20" height="20"/> 
+
 const fetchIntro = useCallback(async () => {
-  const intro = await getIntro()
-  quote = await markdownToHtml(intro.quote || '')
-  content = await markdownToHtml(intro.content || '')
+  // const intro = await getIntro()
+  quote = await markdownToHtml(initialIntro?.quote || '')
+  content = await markdownToHtml(initialIntro?.content || '')
 
   // <Image src="/quotes.svg" width="20" height="20"/> 
   const quoteEl = document.querySelector('#quote').innerHTML = `
@@ -23,24 +29,26 @@ const fetchIntro = useCallback(async () => {
     <div className="text-sm">${quote}</div><br>  <cite> > Kongo Kongo</cite>
   `
 
-  // document.querySelector('#quote').style = `dangerouslySetInnerHTML={{
-  // __html: [
-  //    '.my-special-div:after {',
-  //    '  content: "./public/quotes.svg";',
-  //    '  position: absolute',
-  //    '}'
-  //   ].join('\n')
-  // }}`
+  // const contentEl = document.querySelector('#content').innerHTML = content
 
-//   <blockquote dangerouslySetInnerHTML={{
-//   __html: [
-//      '.my-special-div:after {',
-//      '  content: "Hello";',
-//      '  position: absolute',
-//      '}'
-//     ].join('\n')
-//   }}>
-// </blockquote>
+      // document.querySelector('#quote').style = `dangerouslySetInnerHTML={{
+      // __html: [
+      //    '.my-special-div:after {',
+      //    '  content: "./public/quotes.svg";',
+      //    '  position: absolute',
+      //    '}'
+      //   ].join('\n')
+      // }}`
+
+    //   <blockquote dangerouslySetInnerHTML={{
+    //   __html: [
+    //      '.my-special-div:after {',
+    //      '  content: "Hello";',
+    //      '  position: absolute',
+    //      '}'
+    //     ].join('\n')
+    //   }}>
+    // </blockquote>
 
   const contentEl = document.querySelector('#content').innerHTML = content
 

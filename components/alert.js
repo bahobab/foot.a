@@ -25,7 +25,7 @@ import SectionSeparator from './section-separator';
 //   },
 // ].map((item, index) => <p key={index} className='text-white text-lg'><span className='font-semibold bg-black inline-block mx-2 px-1 h-full'>{item.title}:</span>{item.text}</p> )
 
-export default function Alert({ preview }) {
+export default function Alert({ preview, featuredPosts }) {
   // const [news, setNews] = useState([])
 
   // useEffect(() => {
@@ -72,7 +72,7 @@ export default function Alert({ preview }) {
               {/* <NewsTicker>
                 {newsTicker}
               </NewsTicker> */}
-              <FeaturedPosts />
+              <FeaturedPosts featuredPosts={featuredPosts}/>
               {/* <a
                 href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
                 className="underline hover:text-success duration-200 transition-colors"

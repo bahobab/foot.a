@@ -14,7 +14,7 @@ import { CMS_NAME } from '@/lib/constants'
 import markdownToHtml from '@/lib/markdownToHtml'
 
 import Widget from '@/components/Widget'
-import Category from '@/components/Category'
+import CategoryMenu from '@/components/CategoryMenu'
 import CommentForm from '@/components/comments/CommentForm'
 import Comments from '@/components/comments/Comments'
 
@@ -68,7 +68,7 @@ export default function Post({ post, morePosts, preview }) {
               <div className="col-span-1 lg:col-span-4 align-middle mb-8">
                 <div className=" top-8 lg:sticky">
                   <Widget slug={post.slug} categories={post.categories.map(category => category.slug)}/>
-                  <Category />
+                  <CategoryMenu />
                 </div>
               </div>
             </div>

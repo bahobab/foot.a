@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from 'react'
 import Link from 'next/link';
 
-import {getCategories} from '@/lib/api'
+// import {getCategories} from '@/lib/api'
 
-function Category() {
-  const [categories, setCategories] = useState([]);
+function Category({categories}) {
+  // const [categories, setCategories] = useState([]);
 
-  useEffect(() => {
-    getCategories().then(categories => {
-        setCategories(categories);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getCategories().then(categories => {
+  //       setCategories(categories);
+  //   });
+  // }, []);
 
   console.log('Categories', categories);
 

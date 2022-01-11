@@ -24,16 +24,19 @@ const responsive = {
   },
 }
 
-function FearturedPosts() {
-  const [featuredPosts, setFeaturedPosts] = useState([])
+function FeaturedPosts({featuredPosts}) {
+  console.log('<><> featuredPosts', featuredPosts)
+  // const [featuredPosts, setFeaturedPosts] = useState([])
   const [dataLoaded, setDataLoaded] = useState(false)
 
   useEffect(() => {
-    getFeaturedPosts().then(res => {
-      setFeaturedPosts(res)
-      setDataLoaded(true)
-    })
+    // getFeaturedPosts().then(res => {
+      // setFeaturedPosts(res)
+    // })
+    setDataLoaded(true)
   }, [])
+
+  if (!dataLoaded) return null
 
   const ArrowFix = (arrowProps) => { 
     // https://github.com/YIZHUANG/react-multi-carousel/issues/61
@@ -61,13 +64,15 @@ function FearturedPosts() {
     </ArrowFix>
   );
 
+  const slides = featuredPosts.map((post, index) => (
+          <FeaturedPostCard key={index} post={post} />
+        ))
+
   return (
     <div className="mt-8">
 
       <Carousel infinite  responsive={responsive} customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} itemClass="px-4 relative">
-        {dataLoaded && featuredPosts.map((post, index) => (
-          <FeaturedPostCard key={index} post={post} />
-        ))}
+        {dataLoaded && slides}
       </Carousel>
     </div>
   );
@@ -106,4 +111,4 @@ function FearturedPosts() {
   // )
 }
 
-export default FearturedPosts
+export default FeaturedPosts

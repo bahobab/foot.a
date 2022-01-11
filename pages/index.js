@@ -3,15 +3,19 @@ import MoreStories from '@/components/more-stories'
 import HeroPost from '@/components/hero-post'
 import Intro from '@/components/intro'
 import Layout from '@/components/layout'
-import { getAllPostsForHome } from '@/lib/api'
 import Head from 'next/head'
 import { BLOG_NAME } from '@/lib/constants'
+import { getAllPostsForHome, getCategories, getNews, getHeroHeader, getFeaturedPosts, getIntro } from '@/lib/api'
 
 import Widget from '@/components/Widget'
-import Category from '@/components/Category'
+import Alert from '@/components/alert'
+import CategoryMenu from '@/components/CategoryMenu'
+import HeaderMenu from '@/components/menu/HeaderMenu'
+import HeroHeader from '@/components/hero/HeroHeader'
 import SectionSeparator from '@/components/section-separator'
+import FeaturedPosts from 'sections/FeaturedPosts'
 
-export default function Index({ allPosts }) {
+export default function Index({ allPosts, allCategories, news, heroHeader, featuredPosts, intro }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
@@ -21,7 +25,10 @@ export default function Index({ allPosts }) {
           <title>African Football Blog - {BLOG_NAME}</title>
         </Head>
         <Container>
-          <Intro />
+          <HeaderMenu categories={allCategories}/>
+          <HeroHeader news={news} heroHeader={heroHeader}/>
+          <FeaturedPosts featuredPosts={featuredPosts} />
+          <Intro intro={intro}/>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
             <div className="col-span-1 lg:col-span-8">
               {heroPost && (
@@ -40,7 +47,7 @@ export default function Index({ allPosts }) {
             <div className="col-span-1 lg:col-span-4 align-middle">
               <div className="lg:sticky top-8">
                 <Widget />
-                <Category />
+                <CategoryMenu categories={ allCategories}/>
               </div>
             </div>
           </div>
@@ -52,7 +59,14 @@ export default function Index({ allPosts }) {
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = (await getAllPostsForHome(preview)) || []
+  const allCategories = await getCategories()
+  const news = await getNews()
+  const heroHeader = await getHeroHeader()
+  const featuredPosts = await getFeaturedPosts()
+  const intro = await getIntro()
+
+  console.log('>>> allCategories', featuredPosts)
   return {
-    props: { allPosts },
+    props: { allPosts, allCategories, news, heroHeader, featuredPosts, intro },
   }
 }
