@@ -57,7 +57,7 @@ function HeaderMenu({categories}) {
   }, [])
 
     
-  const renderCategories = categories.map(category => (
+  const renderCategories = categories?.map(category => (
     <Link key={category.slug} href={`/category/${category.slug}`}>
       <a className="cursor-pointer menu-item md:bg-none tracking-wide text-white hover:bg-white md:hover:bg-transparent hover:text-green-400 transition-all duration-300">
         <span className="md:float-right mt-2 md:mt-0 align-middle font-bold p-1  ml-4 xs:ml-0 md:hover:bg-white">{category.name?.toUpperCase()}</span>

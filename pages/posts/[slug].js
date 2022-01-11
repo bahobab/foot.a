@@ -22,7 +22,9 @@ import Avatar from '@/components/avatar'
 import Date from '@/components/date'
 // import PostTitle from '@/components/post-title'
 
-export default function Post({ post, morePosts, preview }) {
+import { getCategories, getNews, getHeroHeader } from '@/lib/api'
+
+export default function Post({ post, morePosts, preview, news, heroHeader, categories }) {
   // console.log('??????', post)
   if (!post) return null
   const router = useRouter()
@@ -31,7 +33,7 @@ export default function Post({ post, morePosts, preview }) {
   }
   return (
     <div  className="bg-th-background">
-      <Layout preview={preview}>
+      <Layout preview={preview} news={news} heroHeader={heroHeader} categories={categories}>
         <Container>
           {/* <Header /> */}
           <PostTitle>{post.title}</PostTitle>
@@ -83,6 +85,10 @@ export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
   const content = await markdownToHtml(data?.post?.content || '')
 
+  const allCategories = await getCategories()
+  const news = await getNews()
+  const heroHeader = await getHeroHeader()
+
   return {
     props: {
       preview,
@@ -91,6 +97,9 @@ export async function getStaticProps({ params, preview = false }) {
         content,
       },
       morePosts: data?.morePosts ?? [],
+      categories: allCategories,
+      news,
+      heroHeader,
     },
   }
 }

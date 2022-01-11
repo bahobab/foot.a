@@ -12,7 +12,7 @@ function Category({categories}) {
   //   });
   // }, []);
 
-  console.log('Categories', categories);
+  // console.log('Categories', categories);
 
   if (!categories) return null;
 

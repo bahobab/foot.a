@@ -20,14 +20,14 @@ export default function Index({ allPosts, allCategories, news, heroHeader, featu
   const morePosts = allPosts.slice(1)
   return (
     <div  className="bg-th-background">
-      <Layout>
+      <Layout categories={allCategories} news={news} heroHeader={heroHeader}>
         <Head>
           <title>African Football Blog - {BLOG_NAME}</title>
         </Head>
         <Container>
-          <HeaderMenu categories={allCategories}/>
-          <HeroHeader news={news} heroHeader={heroHeader}/>
-          <FeaturedPosts featuredPosts={featuredPosts} />
+          {/* <HeaderMenu categories={allCategories}/>
+          <HeroHeader news={news} heroHeader={heroHeader}/>*/}
+          <FeaturedPosts featuredPosts={featuredPosts} /> 
           <Intro intro={intro}/>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
             <div className="col-span-1 lg:col-span-8">
@@ -65,8 +65,9 @@ export async function getStaticProps({ preview = false }) {
   const featuredPosts = await getFeaturedPosts()
   const intro = await getIntro()
 
-  console.log('>>> allCategories', featuredPosts)
+  // console.log('>>> heroheader', heroHeader)
   return {
+    // props: { allPosts, allCategories, featuredPosts, intro },
     props: { allPosts, allCategories, news, heroHeader, featuredPosts, intro },
   }
 }

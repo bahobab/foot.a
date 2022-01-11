@@ -7,16 +7,15 @@ import MoreStories from '@/components/more-stories'
 import Widget from '@/components/Widget'
 import PostTitle from '@/components/post-title'
 
+import { getAllCategoryPaths, getPostsByCategory, getCategoryId, getCategories, getNews, getHeroHeader } from '@/lib/api'
 
-import { getAllCategoryPaths, getPostsByCategory, getCategoryId } from '@/lib/api'
-
-function PostsByCategory({categoryPosts, category}) {
+function PostsByCategory({categoryPosts, category, preview, news, heroHeader, categories}) {
   if (!category) return null
   // console.log('category', category)
   const router = useRouter()
   return (
     <div  className="bg-th-background">
-      <Layout>
+      <Layout preview={preview} news={news} heroHeader={heroHeader} categories={categories}>
         <Container>
           <div className="text-white bg-green-400 rounded-lg p-8 mt-8 md:mb-8" dangerouslySetInnerHTML={{__html: `<p>${category?.summary}<p>`}} />
           {
@@ -55,7 +54,8 @@ export default PostsByCategory
 
 export async function getStaticPaths() {
   const paths = await getAllCategoryPaths()
-  console.log('PATHS', paths)
+  // console.log('PATHS', paths)
+
   return {
     paths: paths?.map(path => `/category/${path.slug}`) || [],
     fallback: true
@@ -66,5 +66,10 @@ export async function getStaticProps({params}) {
   const category = await getCategoryId(params.slug)
   const categoryPosts = await getPostsByCategory(category.id)
 
-  return { props: { categoryPosts, category } }
+  const categories = await getCategories()
+  const news = await getNews()
+  const heroHeader = await getHeroHeader()
+  
+
+  return { props: { categoryPosts, category, categories, news, heroHeader } }
 }

@@ -8,7 +8,7 @@ import SectionSeparator from './section-separator'
 import Container from '@/components/container'
 
 export default function Intro({intro: initialIntro}) {
-  console.log('<<<<<< intro', initialIntro)
+  // console.log('<<<<<< intro', initialIntro)
 const [intro, setIntro] = useState({})
 
 let content, quote
