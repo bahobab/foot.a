@@ -105,6 +105,7 @@ export async function getStaticProps({ params, preview = false }) {
       categories: allCategories,
       news,
       heroHeader,
+      comments
     },
   }
 }

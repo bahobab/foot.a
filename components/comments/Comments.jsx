@@ -32,7 +32,7 @@ function Comments({comments}) {
               }
             </div>
           )
-          : 'No Comments'
+          : 'No Comments yet...'
       }
     </>
   )

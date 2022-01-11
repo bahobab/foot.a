@@ -25,7 +25,7 @@ const responsive = {
 }
 
 function FeaturedPosts({featuredPosts}) {
-  console.log('<><> featuredPosts', featuredPosts)
+  // console.log('<><> featuredPosts', featuredPosts)
   // const [featuredPosts, setFeaturedPosts] = useState([])
   const [dataLoaded, setDataLoaded] = useState(false)
 
