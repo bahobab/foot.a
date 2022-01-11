@@ -22,9 +22,9 @@ import Avatar from '@/components/avatar'
 import Date from '@/components/date'
 // import PostTitle from '@/components/post-title'
 
-import { getCategories, getNews, getHeroHeader } from '@/lib/api'
+import { getCategories, getNews, getHeroHeader, getPostComments } from '@/lib/api'
 
-export default function Post({ post, morePosts, preview, news, heroHeader, categories }) {
+export default function Post({ post, morePosts, preview, news, heroHeader, categories, comments }) {
   // console.log('??????', post)
   if (!post) return null
   const router = useRouter()
@@ -63,7 +63,7 @@ export default function Post({ post, morePosts, preview, news, heroHeader, categ
                 </article>
                 {/* <SectionSeparator /> */}
                 <CommentForm post={post}/>
-                <Comments post={post}/>
+                <Comments comments={comments}/>
                 <SectionSeparator />
                 {morePosts.length > 0 && <MoreStories title="More Stories" posts={morePosts} />}
               </div>
@@ -85,6 +85,8 @@ export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
   const content = await markdownToHtml(data?.post?.content || '')
 
+  const comments = await getPostComments(data.post.id)
+  
   const allCategories = await getCategories()
   const news = await getNews()
   const heroHeader = await getHeroHeader()
