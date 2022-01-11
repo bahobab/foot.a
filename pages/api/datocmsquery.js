@@ -1,14 +1,21 @@
 // import { GraphQLClient } from "graphql-request";
+import { request } from "@/lib/datocms";
+
+import Cors from 'cors'
+const cors = Cors({
+  methods: ['GET', 'POST', 'HEAD', 'OPTIONS'],
+})
 
 import { fetchAPI } from "@/lib/fetchDatocmQuery";
-
-import { request } from "@/lib/datocms";
 
 // import dotenv from "dotenv";
 // dotenv.config();
 
 export default async function datocmsquery(req, res ) {
   console.log('>>IN DATOCMS QUErY', req.url);
+  // Run the middleware
+  await runMiddleware(req, res, cors)
+
   const { query, variables, preview } = req.body;
 
   const respJSON = await fetchAPI(query, {variables, preview});
