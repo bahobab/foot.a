@@ -70,7 +70,7 @@ function HeaderMenu({categories}) {
       <div className="flex justify-between items-center border-b w-full border-th-secondary py-4">
         <div className="md:float-left">
           <Link href="/">
-            <span className="cursor-pointer font-bold text-4xl text-white hover:text-green-400">
+            <span className="cursor-pointer font-bold text-2xl text-white hover:text-green-400">
               F00t.A
             </span>
           </Link>

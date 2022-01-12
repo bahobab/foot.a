@@ -65,7 +65,7 @@ useEffect(() => {
         <h1 className="text-center text-white text-4xl md:text-7xl font-bold tracking-tighter leading-tight md:pr-8">
           {intro?.heading}
         </h1>
-        <h2 className='text-white text-sm md:text-xl md:font-semibold tracking-wide md:tracking-widest mb-8'>{intro?.subheading}</h2>
+        <h2 className='text-th-accent-secondary text-center w-full md:text-xl font-semibold tracking-wide  mt-2 mb-8'>{intro?.subheading}</h2>
         {/* <Image src="/quotes.png" height="50" width="50" /> */}
         <Container >
           <div className="flex flex-col md:flex-row items-center justify-around md:px-16">
