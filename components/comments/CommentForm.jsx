@@ -55,6 +55,7 @@ function CommentForm({post}) {
       setShowSuccessMessage(true)
       setTimeout(() => {
         setShowSuccessMessage(false)
+        commentEl.current.value = ''
       }, 5000)
     }
     )
@@ -108,11 +109,11 @@ function CommentForm({post}) {
         <button 
           type="button"
           onClick={handleCommentSubmit}
-          className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg text-white font-semibold rounded-lg px-4 py-2 cursor-pointer border-none outline-none"
+          className="transition duration-500 ease hover:bg-th-accent-secondary inline-block bg-pink-600 text-lg text-white font-semibold rounded-lg px-4 py-2 cursor-pointer border-none outline-none"
         >
           Post Your Comment
         </button>
-        {showSuccessMessage && <p className="text-xs float-right text-white font-semibold">Comment Submitted for Review</p>}
+        {showSuccessMessage && <p className="text-xs float-right text-th-accent-secondary font-semibold">Comment Submitted for Review</p>}
       </div>
     </div>
   )
