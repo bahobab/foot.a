@@ -4,7 +4,7 @@ import HeroPost from '@/components/hero-post'
 import Intro from '@/components/intro'
 import Layout from '@/components/layout'
 import Head from 'next/head'
-import { BLOG_NAME } from '@/lib/constants'
+import { BLOG_NAME, CMS_NAME } from '@/lib/constants'
 import { getAllPostsForHome, getCategories, getNews, getHeroHeader, getFeaturedPosts, getRecentPosts } from '@/lib/api'
 
 import Widget from '@/components/Widget'
@@ -22,7 +22,7 @@ export default function Index({ allPosts, recentPosts, allCategories, news, hero
     <div  className="bg-th-background">
       <Layout categories={allCategories} news={news} heroHeader={heroHeader}>
         <Head>
-          <title>African Football Blog - {BLOG_NAME}</title>
+          <title>{CMS_NAME} - {BLOG_NAME}</title>
         </Head>
         <Container>
           {/* <HeaderMenu categories={allCategories}/>

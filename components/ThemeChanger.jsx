@@ -19,7 +19,7 @@ const ThemeChanger = () => {
   return (
     <div className="bg-yellow-500 rounded-md">
       <div>
-        <label htmlFor="themes" className='text-xs md:text-normal px-2 mr-1 rounded-md'>Pick Theme</label>
+        <label htmlFor="themes" className='text-xs md:text-normal px-1 rounded-md'>Pick Theme</label>
         <select
           id="themes" 
           name="themes"
