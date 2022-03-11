@@ -86,7 +86,6 @@ export async function getStaticProps({ params, preview = false }) {
   const content = await markdownToHtml(data?.post?.content || '')
 
   // const comments = await getPostComments(data.post.id)
-  // console.log('comments', comments)
   
   const allCategories = await getCategories()
   const similarPosts = await getSimilarPosts(params.slug, allCategories)
@@ -112,7 +111,6 @@ export async function getStaticProps({ params, preview = false }) {
 
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug()
-  // console.log('>>> get static paths', allPosts)
   return {
     paths: allPosts?.map((post) => `/posts/${post.slug}`) || [],
     fallback: true,

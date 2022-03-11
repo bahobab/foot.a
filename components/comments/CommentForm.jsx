@@ -49,7 +49,6 @@ function CommentForm({post}) {
       window.localStorage.removeItem('email')
     }
 
-    // console.log('commentObj', commentObj)
     submitComment(commentObj)
     .then(() => {
       setShowSuccessMessage(true)

@@ -2,8 +2,8 @@ import {useEffect, useState} from 'react';
 import { useTheme } from 'next-themes';
 
 const themes = [
-  {name: 'ghana'},
   {name: 'senegal'},
+  {name: 'ghana'},
   {name: 'mali'},
   {name: 'ethiopia'},
 ]

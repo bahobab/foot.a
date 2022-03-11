@@ -21,7 +21,6 @@ function runMiddleware(req, res, fn) {
 }
 
 export default async function comments(req, res) {
-  // console.log('/api/comments', req.body)
   // Run the middleware
   await runMiddleware(req, res, cors)
   
@@ -32,7 +31,6 @@ export default async function comments(req, res) {
   // const post = await datoClient.items.find({itemType:""(slug: req.body.slug))
 
   const comment = await datoClient.items.create({itemType: "1430555", ...req.body})
-  // console.log('&&&& page/api/comments comment', comment)
     
   return res.status(200).json(comment)  
 }

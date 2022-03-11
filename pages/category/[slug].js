@@ -11,7 +11,6 @@ import { getAllCategoryPaths, getPostsByCategory, getCategoryId, getCategories, 
 
 function PostsByCategory({categoryPosts, similarPosts, category, preview, news, heroHeader, categories}) {
   if (!category) return null
-  // console.log('category', category)
   const router = useRouter()
   return (
     <div  className="bg-th-background">

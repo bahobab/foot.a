@@ -1,6 +1,3 @@
-// import { GraphQLClient } from "graphql-request";
-import { request } from "@/lib/datocms";
-
 import Cors from 'cors'
 const cors = Cors({
   methods: ['GET', 'POST', 'HEAD', 'OPTIONS'],
@@ -22,9 +19,6 @@ function runMiddleware(req, res, fn) {
 
 import { fetchAPI } from "@/lib/fetchDatocmQuery";
 
-// import dotenv from "dotenv";
-// dotenv.config();
-
 export default async function datocmsquery(req, res ) {
   // Run the middleware
   await runMiddleware(req, res, cors)
@@ -42,27 +36,4 @@ export default async function datocmsquery(req, res ) {
     return res.status(200).end({});
   }
   return res.status(200).json(respJSON)
-
-  // console.log('request', { query, variables, preview });
-
-  // if (!preview || !variables) {
-  //   return
-  // }
-
-  // const endpoint = preview
-  //   ? `https://graphql.datocms.com/preview`
-  //   : `https://graphql.datocms.com/`;
-    
-  // const client = new GraphQLClient(endpoint, {
-  //   headers: {
-  //     // authorization: 'Bearer ed49a2531885ebb2f1...',
-  //     authorization: `Bearer ${process.env.NEXT_ENV_DATOCMS_API_TOKEN}`,
-  //   }
-  // });
-
-  // const result = await client.request(query, variables);
-
-  // ############################# local #########################
-  // const result = await request(query, { variables, preview });
-  // return res.send( result);
 }

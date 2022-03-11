@@ -66,7 +66,6 @@ export async function getStaticProps({ preview = false }) {
   const featuredPosts = await getFeaturedPosts()
   // const intro = await getIntro()
 
-  // console.log('>>> heroheader', heroHeader)
   return {
     // props: { allPosts, allCategories, featuredPosts, intro },
     props: { allPosts, recentPosts, allCategories, news, heroHeader, featuredPosts },
